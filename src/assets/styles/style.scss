@@ -1,0 +1,377 @@
+
+@import "bootstrap/scss/bootstrap";
+
+#preload-image-assets{
+    background-image: url("../media/screenshots/winter_01_large.jpg");
+    background-image: url("../media/screenshots/winter_02_large.jpg");
+    background-image: url("../media/screenshots/winter_03_large.jpg");
+    background-image: url("../media/screenshots/winter_04_large.jpg");
+    background-image: url("../media/screenshots/winter_05_large.jpg");
+    background-image: url("../media/screenshots/winter_06_large.jpg");
+}
+
+
+$grid-breakpoints: (xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px);
+
+$banner-base-color: #fbf4ec;
+$ocean-gradient-1: #6acbe7;
+$ocean-gradient-2: #4bbcdc;
+$ocean-gradient-3: #2295af;
+$ocean-gradient-4: #197c91;
+$ocean-gradient-5: #135867;
+$ocean-gradient-6: #103a44;
+$ocean-gradient-7: #0f3440;
+$ocean-gradient-8: #0b2933;
+
+@mixin gradient-background {
+    background: linear-gradient(180deg,
+            $ocean-gradient-1 0,
+            $ocean-gradient-2 8%,
+            $ocean-gradient-3 22%,
+            $ocean-gradient-4 38%,
+            $ocean-gradient-5 50%,
+            $ocean-gradient-6 68%,
+            $ocean-gradient-7 85%,
+            $ocean-gradient-8 100%);
+}
+
+@font-face {
+    font-family: 'Timeless-Bold';
+    src: url('Timeless-Bold.ttf.woff') format('woff'),
+        url('Timeless-Bold.ttf.svg#Timeless-Bold') format('svg'),
+        url('Timeless-Bold.ttf.eot'),
+        url('Timeless-Bold.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Timeless-Normal';
+    src: url('Timeless-Normal.ttf.woff') format('woff'),
+        url('Timeless-Normal.ttf.svg#Timeless-Normal') format('svg'),
+        url('Timeless-Normal.ttf.eot'),
+        url('Timeless-Normal.ttf.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body {
+    margin: 10px 0px 0px;
+    background: $banner-base-color;
+    font-size: 16px;
+
+    .banner {
+        width: 100%;
+        position: relative;
+        z-index: 3;
+        .banner-logo {
+            text-align: center;
+
+            .logo {
+                width: 90%;
+            }
+        }
+
+        .ice-hole {
+            background-image: url('../media/icehole_img.png');
+            background-size: contain;
+            width: calc(1268px * var(--scaleFactor));
+            height: calc(382px * var(--scaleFactor));
+            position: relative;
+            margin-left: auto;
+			margin-right: auto;
+        }
+
+        .ice-cap {
+            position: relative;
+
+            .ice-divider,
+            .ice-shadow {
+                position: absolute;
+                background-size: contain;
+                background-repeat: repeat-x;
+                width: 100%;
+            }
+
+            .ice-divider {
+                background-image: url('../media/snow_ice_img.png');
+                height: calc(263px * var(--scaleFactor));
+				top: -3px;
+            }
+
+            .ice-shadow {
+                top: calc(130px * var(--scaleFactor));
+                background-image: url('../media/dark_ice_img.png');
+                height: calc(237px * var(--scaleFactor));
+            }
+        }
+    }
+
+    .main {
+        @include gradient-background;
+        position: relative;
+        z-index: 2;
+		padding-top: calc(250px * var(--scaleFactor));
+		padding-bottom: calc(250px * var(--scaleFactor));
+
+        .ocean-scene {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+
+            .character {
+                position: absolute;
+                background-image: url('../media/man.png');
+                width: calc(572px * var(--scaleFactor));
+                height: calc(550px * var(--scaleFactor));
+                background-size: contain;
+                top: calc(600px * var(--scaleFactor));
+            }
+
+            .spotlight {
+                position: absolute;
+                background-image: url('../media/spotlight.png');
+                width: calc(1920px * var(--scaleFactor));
+                height: calc(5528px * var(--scaleFactor));
+                background-size: contain;
+            }
+
+            .bubbles {
+                position: absolute;
+                background-image: url('../media/bubble_splash.png');
+                width: calc(603px * var(--scaleFactor));
+                height: calc(1402px * var(--scaleFactor));
+                background-size: contain;
+                top: calc(130px * var(--scaleFactor));
+            }
+        }
+
+        .content {
+            font-family: Timeless-Normal;
+            color: $banner-base-color;
+
+			// The general height of the bubbles. This ensures the text is under the bubbles
+			margin-top: calc(1500px * var(--scaleFactor));
+
+            .about-main-header,
+            .trailer-main-header,
+            .screenshot-main-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: Timeless-Bold;
+                font-size: 1.5rem;
+            }
+
+            .header_bullet_point {
+                width: 3rem;
+                height: 3rem;
+                margin-top: -9px;
+                margin-right: 5px
+            }
+
+            .about-main-content {
+                font-family: Timeless-Normal;
+                padding: 2rem;
+                font-size: 1.15rem;
+            }
+
+            .bold {
+                font-family: Timeless-Bold;
+            }
+
+            .bullet_point {
+                width: 25px;
+                height: 25px;
+                margin-right: 5px;
+                position: relative;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .trailer-section {
+                width: 100%;
+
+				.trailer-main-header{
+					padding: 40px 0px 10px;
+				}
+                video {
+                    width: 100%;
+                }
+            }
+
+            .screenshot-section {
+				.screenshot-main-header{
+					padding: 40px 0px 10px;
+				}
+                .gallery-main {
+                    .main-image-mask {
+                        -webkit-mask-image: url("../media/screenshots/main-image-alpha.png");
+                        mask-image: url("../media/screenshots/main-image-alpha.png");
+                        -webkit-mask-size: contain;
+                        mask-size: cover;
+                    }
+
+                    .all-thumbs {
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex: 0 0 33.3333%;
+                        justify-content: center;
+						padding: 20px 0px 10px;
+
+                        li {
+                            list-style: none;
+
+                            width: 6.25rem;
+                            height: 6.25rem;
+                            margin: 0px 10px;
+
+                            .thumb-img {
+                                opacity: .75;
+                                -webkit-transition: 0.3s;
+                                transition: 0.3s;
+                                pointer-events: all;
+                                
+
+                                &.selected-thumbnail {
+                                    opacity: 1;
+                                }
+                            }
+
+                            .thumb-img:hover {
+                                opacity: 1;
+                                scale: 1.1;
+                            }
+
+                            .thumb-mask {
+                                -webkit-mask-image: url("../media/screenshots/thumbnail-image-alpha.png");
+                                mask-image: url("../media/screenshots/thumbnail-image-alpha.png");
+                                -webkit-mask-size: contain;
+                                mask-size: cover;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .footer-section {
+        background-color: black;
+
+        .sea-floor {
+            background-color: #0b2933;
+            background-image: url('../media/plants_repeat.png');
+            height: calc(479px * var(--scaleFactor));
+            background-size: contain;
+            background-repeat: repeat-x;
+            width: 100%;
+        }
+
+        .footer-container {
+            padding-top: 5rem;
+			
+			.footer-logo{
+				width: 100%;
+				text-align: center;
+				.logo{
+					width: 90%;
+				}
+			}
+
+            .social {
+				a{
+					text-decoration: none;
+				}
+                .footer-image-container {
+                    display: inline-block;
+                    position: relative;
+                    width: 60px;
+                    height: 60px;
+                    margin: 2rem 1.56rem 0 1.56rem;
+
+                    &.facebook:hover,
+                    &.twitter:hover,
+                    &.instagram:hover,
+                    &.reddit:hover,
+                    &.discord:hover,
+                    &.signup:hover {
+                        .image-hover {
+                            opacity: 1;
+                        }
+
+                        .image-default {
+                            opacity: 0;
+                        }
+                    }
+
+                    .footer-image {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transition: opacity;
+                        width: 60px;
+                        height: 60px;
+                        opacity: 1;
+                    }
+
+                    .image-hover {
+                        transition: opacity;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(sm) {
+	body {
+		.main {
+			.content {
+				
+			}
+			
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {}
+
+@include media-breakpoint-up(lg) {
+	body {
+		.banner {
+			.banner-logo {
+				.logo {
+					width: 60%;
+				}
+			}
+		}
+		.footer-section {	
+			.footer-container {				
+				.footer-logo{
+					.logo{
+						width: 60%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+}
+
+@include media-breakpoint-up(xxl) {}
